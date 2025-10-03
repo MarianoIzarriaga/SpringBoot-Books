@@ -7,5 +7,5 @@ RUN mvn clean package -DskipTests
 # Etapa 2: Crear la imagen final solo con el JAR
 FROM openjdk:17-jdk-alpine
 WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
+COPY --from=build /app/target/database-0.0.1-SNAPSHOT.jar /app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
